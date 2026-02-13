@@ -64,3 +64,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# UI
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'dartsass-rails'
+gem 'jquery-rails'
