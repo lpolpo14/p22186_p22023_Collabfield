@@ -1,0 +1,22 @@
+<div class="col-12 col-md-6 col-lg-4 single-post-card">
+  <div class="card h-100">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= truncate(post.title, length: 60) %>
+      </h4>
+
+      <div class="posted-by text-muted mb-2">
+        Posted by <%= post.user.name %>
+      </div>
+
+      <p class="card-text">
+        <%= post.content %>
+      </p>
+
+      <%= link_to "I'm interested",
+                  post_path(post),
+                  class: "btn btn-primary interested" %>
+    </div>
+  </div>
+</div>
+
