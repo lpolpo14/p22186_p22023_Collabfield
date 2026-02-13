@@ -1,17 +1,39 @@
+.pc-menu {
+  margin-right: 10px;
+}
 
 .navbar {
-  background-color: $navbarColor !important;
+  background-color: $navbarColor;
 }
 
 .navbar .navbar-brand,
 .navbar .nav-link {
-  color: white !important;
+  color: white;
 }
 
 .navbar .nav-link:hover {
   opacity: 0.8;
 }
 
-body {
- margin-top: 50px;
+.nav-link.active {
+  border-bottom: 5px solid white;
 }
+
+.dropdown-menu {
+  background-color: $navbarColor;
+  border: none;
+}
+
+.dropdown-menu .dropdown-item {
+  color: white;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: white;
+  color: black;
+}
+
+body {
+  margin-top: 50px;
+}
+

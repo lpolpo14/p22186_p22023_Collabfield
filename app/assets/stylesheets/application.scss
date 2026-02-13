@@ -18,5 +18,7 @@
 
 // Partials - main css files
 @import "partials/layout/navigation";
-@import "partials/*";
-@import "partials/layout/*";
+@import "partials/signup";
+
+@import "responsive/mobile";
+@import "responsive/desktop";
