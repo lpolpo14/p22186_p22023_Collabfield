@@ -1,0 +1,37 @@
+/* Remove the height constraints from the outer div */
+.single-post-card {
+  /* Remove min-height and max-height - let Bootstrap handle this */
+  padding: 0; /* Remove padding, let card handle it */
+}
+
+/* Style the inner card instead */
+.post-card-inner {
+  transition: all 0.3s ease;
+  border: 2px solid transparent !important; /* Base transparent border */
+}
+
+/* Solid color mode styles */
+.post-card-inner.solid-color-mode {
+  border: none !important; /* Remove border for solid mode */
+}
+
+/* Border color mode styles */
+.post-card-inner.border-color-mode {
+  border-width: 3px !important;
+  border-style: solid !important;
+}
+
+/* Hover effects */
+.post-card-inner:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Keep the card text truncated nicely */
+.card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

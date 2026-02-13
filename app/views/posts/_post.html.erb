@@ -1,22 +1,15 @@
-<div class="col-12 col-md-6 col-lg-4 single-post-card">
-  <div class="card h-100">
+<div class="col-12 col-md-6 col-lg-4 mb-4"
+     data-controller="post-cards"
+     data-post-cards-target="card"
+     data-action="mouseenter->post-cards#hover mouseleave->post-cards#leave">
+
+  <div class="card h-100 post-card-inner">
     <div class="card-body">
-      <h4 class="card-title">
-        <%= truncate(post.title, length: 60) %>
-      </h4>
-
-      <div class="posted-by text-muted mb-2">
-        Posted by <%= post.user.name %>
-      </div>
-
-      <p class="card-text">
-        <%= post.content %>
-      </p>
-
-      <%= link_to "I'm interested",
-                  post_path(post),
-                  class: "btn btn-primary interested" %>
+      <h4 class="card-title"><%= truncate(post.title, length: 60) %></h4>
+      <p class="card-text"><%= truncate(post.content, length: 100) %></p>
+    </div>
+    <div class="card-footer text-muted">
+      <small>Posted by <%= post.user.name %></small>
     </div>
   </div>
 </div>
-
