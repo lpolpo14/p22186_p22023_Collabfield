@@ -1,0 +1,46 @@
+/* app/assets/stylesheets/application.scss or posts.scss */
+.pagination {
+  display: flex;
+  gap: 8px;  /* This adds space between the items */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination em.current,
+.pagination span.disabled {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.pagination a {
+  color: #007bff;
+  background-color: white;
+}
+
+.pagination a:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.pagination em.current {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination span.disabled {
+  color: #6c757d;
+  background-color: #e9ecef;
+  pointer-events: none;
+}
+
+/* Remove default will_paginate styling */
+.pagination .previous_page,
+.pagination .next_page {
+  /* Keep your existing styles, they'll be overridden by above */
+}
