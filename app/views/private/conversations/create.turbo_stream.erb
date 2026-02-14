@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "contact-user" do %>
+  <div class="contact-user">
+    <div class="contacted-user">
+      <%= @conversation.persisted? ? "Message has been sent" : "Message has not been sent" %>
+    </div>
+  </div>
+<% end %>
