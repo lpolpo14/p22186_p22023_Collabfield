@@ -1,7 +1,13 @@
 <div class="col-12 col-md-6 col-lg-4 mb-4"
      data-controller="post-cards"
      data-post-cards-target="card"
-     data-action="mouseenter->post-cards#hover mouseleave->post-cards#leave">
+     data-post-modal-target="trigger"
+     data-action="click->post-modal#open"
+     data-post-modal-posted-by="<%= post.user.name %>"
+     data-post-modal-title="<%= post.title %>"
+     data-post-modal-content="<%= post.content %>"
+     data-post-modal-interest-path="<%= post_path(post.id) %>"
+     data-post-modal-id="<%= post.id %>">
 
   <div class="card h-100 post-card-inner">
     <div class="card-body">
