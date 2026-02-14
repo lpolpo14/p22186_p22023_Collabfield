@@ -3,6 +3,9 @@ class PostsController < ApplicationController
   before_action :redirect_if_not_signed_in, only: [:new]
 
   def show
+    if user_signed_in?
+      @message_has_been_sent = conversation_exist?
+    end
     @post = Post.find(params[:id])
   end
 
@@ -52,6 +55,10 @@ class PostsController < ApplicationController
   def post_params
   params.require(:post).permit(:content, :title, :category_id)
                        .merge(user_id: current_user.id)
+  end
+
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
   end
 
 end
