@@ -1,6 +1,16 @@
-<div id="side-menu" class="col-md-3">
+<div id="side-menu" class="col-md-3 d-none d-md-block">
   <ul id="links-list">
     <%= render 'pages/index/side_menu/no_login_required_links' %>
   </ul>
 </div>
+<button class="btn btn-primary d-md-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileSidebar">
+  Menu
+</button>
 
+<div class="offcanvas offcanvas-start d-md-none" id="mobileSidebar">
+  <div class="offcanvas-body">
+    <%= render 'pages/index/side_menu/no_login_required_links' %>
+  </div>
+</div>
