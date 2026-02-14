@@ -1,15 +1,19 @@
 <% branch_path_name = "#{params[:action]}_posts_path" %>
 
-<div class="col-sm-12">
-  <ul class="categories-list">
-    <%= render all_categories_button_partial_path, 
-               branch_path_name: branch_path_name %>
+<div class="col-12">
+  <div class="d-flex flex-wrap gap-2">
+    
+    <%# All Categories button %>
+    <%= link_to "All", 
+                send(branch_path_name), 
+                class: "btn #{params[:category].blank? ? 'btn-primary' : 'btn-outline-primary'}" %>
+
+    <%# Category buttons %>
     <% @categories.each do |category| %>
-      <li class="category-item">
-        <%= link_to category.name, 
-                    send(branch_path_name, category: category.name), 
-                    class: ("selected-item" if params[:category] == category.name) %>
-      </li>
+      <%= link_to category.name,
+                  send(branch_path_name, category: category.name),
+                  class: "btn #{params[:category] == category.name ? 'btn-primary' : 'btn-outline-primary'}" %>
     <% end %>
-  </ul>
+
+  </div>
 </div>

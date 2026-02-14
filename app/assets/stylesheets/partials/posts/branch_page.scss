@@ -1,0 +1,34 @@
+.new-post-button-parent {
+  text-align: right;
+  span {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+}
+
+.new-post-button {
+  display: inline-block;
+  background: $navbarColor;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: solid 2px $navbarColor;
+  margin: 10px 0;
+  &:hover, &:active, &:focus {
+    background: white;
+    color: black;
+  }
+}
+
+.login-branch {
+  margin: 10px 0;
+}
+
+.login-button-branch {
+  padding: 5px 10px;
+  border-radius: 10px;
+  &:hover, &:active, &:visited, &:link {
+    color: white;
+  }
+}

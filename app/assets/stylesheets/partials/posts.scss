@@ -54,3 +54,30 @@
     color: rgba(0,0,0,0.5);
   }
 }
+
+
+/* Make sure this has enough specificity */
+.single-post-list .post-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #f8f9fa; 
+  padding: 0 15px; 
+}
+
+.single-post-list:hover .post-content {
+  max-height: 300px; 
+  padding: 15px; 
+}
+
+/* Ensure the title is always visible */
+.single-post-list {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.single-post-list:hover {
+  background-color: #f0f0f0; 
+}
