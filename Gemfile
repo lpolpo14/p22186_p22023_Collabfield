@@ -75,3 +75,5 @@ gem 'devise'
 gem 'bootstrap_form'
 
 gem 'faker'
+
+gem 'will_paginate', '~> 4.0', '>= 4.0.1'
