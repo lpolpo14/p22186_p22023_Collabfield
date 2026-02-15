@@ -5,12 +5,18 @@ export default class extends Controller {
   static targets = ["window"]
 
   connect() {
+
     this.positionAll()
     
     // Listen for Turbo Stream updates to reposition
     document.addEventListener("turbo:before-stream-render", () => {
       // Small delay to ensure DOM is updated
       setTimeout(() => this.positionAll(), 50)
+    })
+    
+    // Also listen for turbo:load in case of page navigation
+    document.addEventListener("turbo:load", () => {
+      this.positionAll()
     })
   }
 

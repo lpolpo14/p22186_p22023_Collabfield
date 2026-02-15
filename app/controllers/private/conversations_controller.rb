@@ -24,7 +24,16 @@ class Private::ConversationsController < ApplicationController
       format.turbo_stream
       format.html { redirect_to root_path }
     end
+  end
+
+  def close
+    @conversation_id = params[:id].to_i
+    session[:private_conversations].delete(@conversation_id)
+
+    respond_to do |format|
+      format.turbo_stream
     end
+  end
 
   private
 
