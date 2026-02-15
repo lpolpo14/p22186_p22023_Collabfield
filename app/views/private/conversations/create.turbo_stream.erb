@@ -1,7 +1,16 @@
 <%= turbo_stream.replace "contact-user" do %>
   <div class="contact-user">
     <div class="contacted-user">
-      <%= @conversation.persisted? ? "Message has been sent" : "Message has not been sent" %>
+      Message has been sent
     </div>
   </div>
 <% end %>
+
+<% unless @already_added %>
+  <%= turbo_stream.append "chat-windows" do %>
+    <%= render "private/conversations/conversation",
+               conversation: @conversation,
+               user: current_user %>
+  <% end %>
+<% end %>
+

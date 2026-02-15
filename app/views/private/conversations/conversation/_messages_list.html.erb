@@ -1,0 +1,13 @@
+<div class="messages-list">
+  <%= render partial: load_private_messages(conversation),
+           formats: [:html],
+           locals: { conversation: conversation } %>
+  <div class="loading-more-messages">
+    <i class="fa fa-spinner" aria-hidden="true"></i>
+  </div>
+  <!-- messages -->
+  <ul>
+  </ul>
+</div>
+
+

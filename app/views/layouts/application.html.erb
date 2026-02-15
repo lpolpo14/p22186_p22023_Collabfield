@@ -26,5 +26,8 @@
 
   <body>
     <%= yield %>
+    <div id="chat-windows" data-controller="chat">
+    <%= render 'layouts/application/private_conversations_windows' %>
+    </div>
   </body>
 </html>

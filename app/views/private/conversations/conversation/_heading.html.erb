@@ -1,0 +1,11 @@
+<div class="panel-heading conversation-heading">
+  <span class="contact-name-notif"><%= recipient.name %></span>
+
+  <%= button_to "X",
+        close_private_conversation_path(conversation),
+        method: :post,
+        form: { data: { turbo_stream: true } },
+        class: "close-conversation",
+        title: "Close" %>
+</div>
+
