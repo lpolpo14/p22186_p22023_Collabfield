@@ -23,8 +23,20 @@
      <%= f.check_box :remember_me %>
   <% end -%>
 
-   <%= f.submit "Log in", class: 'form-control login-button' %>
+  <%= f.submit "Log in", class: 'form-control login-button' %>
+
+
+
 <% end %>
+
+<div class="text-center mt-3">
+  <p>Or sign up with:</p>
+  <%= button_to "Google", user_google_oauth2_omniauth_authorize_path, 
+      method: :post, 
+      data: { turbo: false },
+      class: 'btn btn-outline-danger mb-2' %>
+
+</div>
 
     </div>
   </div> 

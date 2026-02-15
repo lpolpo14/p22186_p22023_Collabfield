@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" } # More modern
+
+  devise_for :users, controllers: { 
+  registrations: "registrations",
+  omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   # devise_for :users, :controllers => {:registrations => "registrations"} Old way.
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # get "up" => "rails/health#show", as: :rails_health_check

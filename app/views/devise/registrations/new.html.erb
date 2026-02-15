@@ -23,8 +23,20 @@
   <%= f.password_field :password_confirmation, 
                        placeholder: 'password confirmation', 
                        class: 'form-control' %>
-  <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
-<% end %>
+                     <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+
+
+                   <% end %>
+
+                   
+  <div class="text-center mt-3">
+  <p>Or sign up with:</p>
+  <%= button_to "Google", user_google_oauth2_omniauth_authorize_path, 
+      method: :post, 
+      data: { turbo: false },
+      class: 'btn btn-outline-danger mb-2' %>
+
+  </div>
 
     </div>
   </div>
