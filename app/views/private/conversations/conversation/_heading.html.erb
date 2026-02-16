@@ -1,4 +1,4 @@
-<div class="panel-heading conversation-heading">
+<div class="panel-heading <%= conv_heading_class(contact) %>">
   <span class="contact-name-notif"><%= recipient.name %></span>
 
   <%= button_to "X",
@@ -8,4 +8,9 @@
         class: "close-conversation",
         title: "Close" %>
 </div>
+
+<%= render add_to_contacts_partial_path(contact, recipient),
+           recipient: recipient,
+           contact: contact,
+           conversation: conversation %>
 

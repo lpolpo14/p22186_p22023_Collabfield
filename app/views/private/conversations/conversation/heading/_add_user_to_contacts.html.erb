@@ -1,0 +1,8 @@
+<span id="contact-action-<%= recipient.id %>">
+  <%= link_to contacts_path(contact_id: recipient.id),
+              data: { turbo_method: :post, turbo_stream: true },
+              class: "add-user-to-contacts add-user-to-contacts-notif" do %>
+    <i class="fa fa-user-plus" aria-hidden="true" title="Add to contacts"></i>
+  <% end %>
+</span>
+

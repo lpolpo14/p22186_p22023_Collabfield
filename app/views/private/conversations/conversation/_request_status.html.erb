@@ -1,0 +1,6 @@
+<div id="contact-request-status-<%= recipient.id %>">
+  <%= render unaccepted_contact_request_partial_path(contact),
+      recipient: recipient %>
+    <%= render not_contact_no_request_partial_path(contact, recipient),
+      recipient: recipient %>
+</div>
