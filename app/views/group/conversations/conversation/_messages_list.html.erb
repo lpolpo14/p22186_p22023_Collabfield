@@ -1,7 +1,9 @@
 <div class="messages-list"
      data-controller="conversation--autoscroll">
-  <ul id="<%= dom_id(conversation, :messages) %>">
-    <%= render conversation.messages %>
-  </ul>
+  <%= turbo_frame_tag dom_id(conversation, :messages) do %>
+    <ul>
+      <%= render conversation.messages %>
+    </ul>
+  <% end %>
 </div>
 

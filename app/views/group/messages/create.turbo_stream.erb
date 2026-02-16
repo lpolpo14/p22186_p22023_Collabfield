@@ -1,0 +1,4 @@
+<%= turbo_stream.append dom_id(@conversation, :messages),
+      partial: "group/messages/message",
+      locals: { message: @message } %>
+

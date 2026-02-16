@@ -1,0 +1,8 @@
+<li id="<%= dom_id(message) %>"
+    class="message"
+    data-controller="conversation--message-align"
+    data-user-id="<%= message.user_id %>">
+  <strong><%= message.user.name %></strong><br>
+  <%= message.content %>
+</li>
+

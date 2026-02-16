@@ -1,0 +1,5 @@
+<% unless @already_added %>
+  <%= turbo_stream.append "chat-windows",
+        partial: "group/conversations/conversation",
+        locals: { conversation: @conversation, user: current_user } %>
+<% end %>

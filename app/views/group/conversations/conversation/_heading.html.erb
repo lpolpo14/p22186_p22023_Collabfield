@@ -4,11 +4,7 @@
   </span>
 
   <div class="conversation-heading-actions">
-    <%= link_to "X",
-                close_group_conversation_path(conversation),
-                data: { turbo_method: :post, turbo_stream: true },
-                class: "close-conversation",
-                title: "Close" %>
+    
 
     <div class="group-chat-control"
          data-controller="group-chat-toggle">
@@ -19,8 +15,15 @@
       </button>
 
       <%= render "group/conversations/conversation/select_user",
-                 conversation: conversation %>
+        conversation: conversation ,
+        add_people_to_conv_list: add_people_to_conv_list %>
     </div>
+
+    <%= link_to "X",
+                close_group_conversation_path(conversation),
+                data: { turbo_method: :post, turbo_stream: true },
+                class: "close-conversation",
+                title: "Close" %>
   </div>
 </div>
 
