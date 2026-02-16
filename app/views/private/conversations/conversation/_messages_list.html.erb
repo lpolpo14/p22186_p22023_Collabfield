@@ -1,4 +1,6 @@
-<div class="messages-list">
+<div class="messages-list"
+     data-controller="conversation--autoscroll"
+     data-action="turbo:before-stream-render->conversation--autoscroll#scrollToBottomIfNearBottom">
   <%= turbo_frame_tag "conversation_#{conversation.id}_messages" do %>
     <ul>
       <%= render partial: "private/messages/message",

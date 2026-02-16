@@ -1,6 +1,9 @@
 <%= form_with model: [ :private, Private::Message.new ],
               url: private_messages_path,
-              data: { turbo: true },
+              data: {
+                controller: "conversation--reset-form",
+                action: "turbo:submit-end->conversation--reset-form#reset"
+              }, 
               class: "send-private-message" do |f| %>
 
   <%= hidden_field_tag :conversation_id, conversation.id %>

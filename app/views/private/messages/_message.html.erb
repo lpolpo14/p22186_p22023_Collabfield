@@ -1,7 +1,8 @@
-<li id="message_<%= message.id %>"
+<li id="<%= dom_id(message) %>"
+    class="message"
+    data-controller="conversation--message-align"
     data-user-id="<%= message.user_id %>">
-  <div class="message-bubble p-2 rounded mb-2">
-    <strong><%= message.user.name %></strong><br>
-    <%= message.body %>
-  </div>
+  <strong><%= message.user.name %></strong><br>
+  <%= message.body %>
 </li>
+
