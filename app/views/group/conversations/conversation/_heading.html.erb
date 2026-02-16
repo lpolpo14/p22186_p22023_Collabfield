@@ -1,0 +1,26 @@
+<div class="panel-heading conversation-heading">
+  <span class="contact-name-notif">
+    <%= truncate(conversation.name, length: 40) %>
+  </span>
+
+  <div class="conversation-heading-actions">
+    <%= link_to "X",
+                close_group_conversation_path(conversation),
+                data: { turbo_method: :post, turbo_stream: true },
+                class: "close-conversation",
+                title: "Close" %>
+
+    <div class="group-chat-control"
+         data-controller="group-chat-toggle">
+      <button type="button"
+              class="add-people-to-chat"
+              data-action="click->group-chat-toggle#toggle">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+
+      <%= render "group/conversations/conversation/select_user",
+                 conversation: conversation %>
+    </div>
+  </div>
+</div>
+
