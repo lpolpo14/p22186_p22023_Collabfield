@@ -1,6 +1,8 @@
 <% recipient = private_conv_recipient(conversation) %>
 <% @is_messenger = false %>
 
+
+<%= turbo_stream_from conversation %>
 <li class="conversation-window"
     id="pc<%= conversation.id %>"
     data-controller="conversation"

@@ -8,16 +8,14 @@ class Private::ConversationsController < ApplicationController
       sender_id: current_user.id,
       recipient_id: recipient_id
     )
-
     if @conversation.persisted?
-      Private::Message.create(
-        user_id: current_user.id,
-        conversation_id: @conversation.id,
-        body: params[:message_body]
-      )
+      @message = @conversation.messages.create!(
+      user: current_user,
+      body: params[:message_body]
+    )
 
-      @already_added = already_added?
-      add_to_conversations unless @already_added
+    @already_added = already_added?
+    add_to_conversations unless @already_added
     end
 
     respond_to do |format|

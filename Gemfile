@@ -81,3 +81,4 @@ gem 'will_paginate', '~> 4.0', '>= 4.0.1'
 
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+

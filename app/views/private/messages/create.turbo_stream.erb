@@ -1,0 +1,4 @@
+<%= turbo_stream.append "conversation_#{@conversation.id}_messages",
+  partial: "private/messages/message",
+  locals: { message: @message } %>
+

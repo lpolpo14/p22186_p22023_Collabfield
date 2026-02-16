@@ -8,6 +8,9 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %> <!-- needed for Turbo Cable -->
+
+    <%= javascript_importmap_tags %>
     <%= render 'layouts/navigation' %>
     <%= yield :head %>
 
@@ -20,14 +23,13 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body>
+  <body data-current-user-id="<%= current_user&.id %>">
     <%= yield %>
     <div id="chat-windows" data-controller="chat">
-    <%= render 'layouts/application/private_conversations_windows' %>
+      <%= render 'layouts/application/private_conversations_windows' %>
     </div>
   </body>
 </html>

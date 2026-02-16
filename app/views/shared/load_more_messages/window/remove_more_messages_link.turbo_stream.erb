@@ -1,0 +1,9 @@
+<%# Remove loading indicator %>
+<%= turbo_stream.replace "#{@id_type}#{@conversation.id} .loading-more-messages" do %>
+  <%# Replace with empty string (nothing) %>
+<% end %>
+
+<%# Remove load more link %>
+<%= turbo_stream.replace "#{@id_type}#{@conversation.id} .load-more-messages" do %>
+  <%# Replace with empty string (nothing) %>
+<% end %>

@@ -1,18 +1,16 @@
-<%= form_with url: private_messages_path,
-              method: :post,
-              data: { turbo_stream: true },
+<%= form_with model: [ :private, Private::Message.new ],
+              url: private_messages_path,
+              data: { turbo: true },
               class: "send-private-message" do |f| %>
 
   <%= hidden_field_tag :conversation_id, conversation.id %>
-  <%= hidden_field_tag :user_id, user.id %>
 
   <%= f.text_area :body,
-                  rows: 3,
+                  rows: 2,
                   class: "form-control",
                   placeholder: "Type a message..." %>
 
   <%= f.submit "Send",
-               class: "btn btn-success send-message" %>
-
+               class: "btn btn-success mt-1" %>
 <% end %>
 

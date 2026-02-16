@@ -1,0 +1,16 @@
+<%= turbo_stream.replace "#{@id_type}#{@conversation.id} .load-more-messages" do %>
+  <span class="load-more-messages"></span>
+<% end %>
+
+<%= turbo_stream.prepend "#{@id_type}#{@conversation.id} .messages-list ul" do %>
+  <%= render "#{@type}/conversations/messages" %>
+<% end %>
+
+<%= turbo_stream.append "body" do %>
+  <script>
+    (function() {
+      const list = document.querySelector('#<%= @id_type %><%= @conversation.id %> .messages-list');
+      if (list) setTimeout(() => list.scrollTop = 400, 50);
+    })();
+  </script>
+<% end %>

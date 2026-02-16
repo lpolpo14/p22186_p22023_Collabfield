@@ -1,0 +1,7 @@
+<li id="message_<%= message.id %>"
+    data-user-id="<%= message.user_id %>">
+  <div class="message-bubble p-2 rounded mb-2">
+    <strong><%= message.user.name %></strong><br>
+    <%= message.body %>
+  </div>
+</li>
