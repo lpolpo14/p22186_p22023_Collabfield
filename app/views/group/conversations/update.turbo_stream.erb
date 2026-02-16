@@ -1,0 +1,13 @@
+<% if @info_message.present? %>
+  <%= turbo_stream.append dom_id(@conversation, :messages),
+        partial: "group/messages/message",
+        locals: { message: @info_message } %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(@conversation, :heading),
+      partial: "group/conversations/conversation/heading",
+      locals: {
+        conversation: @conversation,
+        add_people_to_conv_list: @add_people_to_conv_list
+      } %>
+

@@ -32,6 +32,24 @@ class Group::ConversationsController < ApplicationController
     end
   end
 
+
+  def update
+  @info_message = Group::AddUserToConversationService.new(
+    group_conversation_id: params[:id],
+    new_user_id: params[:user_id],
+    added_by_id: params[:added_by]
+  ).call
+
+  @conversation = Group::Conversation.find(params[:id])
+  @add_people_to_conv_list = @conversation.addable_users_for(current_user)
+
+  respond_to do |format|
+    format.turbo_stream
+    format.html { redirect_back fallback_location: root_path }
+  end
+  end
+
+
   private
 
   def add_to_conversations

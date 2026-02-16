@@ -1,9 +1,12 @@
 <div class="messages-list"
-     data-controller="conversation--autoscroll">
-  <%= turbo_frame_tag dom_id(conversation, :messages) do %>
-    <ul>
+     data-controller="conversation--autoscroll"
+     data-action="turbo:before-stream-render->conversation--autoscroll#scrollToBottomIfNearBottom">
+
+  <turbo-frame id="<%= dom_id(conversation, :messages_frame) %>">
+    <ul id="<%= dom_id(conversation, :messages) %>">
       <%= render conversation.messages %>
     </ul>
-  <% end %>
+  </turbo-frame>
+
 </div>
 

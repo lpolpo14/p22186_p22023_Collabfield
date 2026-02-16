@@ -6,4 +6,16 @@ class Group::Conversation < ApplicationRecord
            class_name: "Group::Message",
            foreign_key: 'conversation_id', 
            dependent: :destroy
+
+
+  def addable_users_for(user)
+  return [] unless user
+
+  contact_ids = Array(user.all_active_contacts).map(&:id)
+  return [] if contact_ids.empty?
+
+  User.where(id: contact_ids).where.not(id: users.select(:id))
+  end
+
+
 end

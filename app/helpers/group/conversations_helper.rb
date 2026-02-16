@@ -12,6 +12,15 @@ module Group::ConversationsHelper
     add_people_to_conv_list
   end
 
+  def add_people_to_group_conv_list(conversation, user)
+    return [] unless user
+
+    contacts = user.all_active_contacts
+    users_in_conv = conversation.users
+
+    contacts.reject { |c| users_in_conv.include?(c) }
+  end
+
   def load_group_messages_partial_path(conversation)
   if conversation.messages.count > 0
     'group/conversations/conversation/messages_list/load_messages'
