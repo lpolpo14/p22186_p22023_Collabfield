@@ -33,6 +33,16 @@ class Private::ConversationsController < ApplicationController
     end
   end
 
+  def open
+    @conversation = Private::Conversation.find(params[:id])
+    add_to_conversations unless already_added?
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_back fallback_location: root_path }
+    end
+  end
+
   private
 
   def add_to_conversations

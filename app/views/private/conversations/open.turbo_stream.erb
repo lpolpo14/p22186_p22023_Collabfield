@@ -1,0 +1,8 @@
+<% unless @already_added %>
+  <%= turbo_stream.append "chat-windows" do %>
+    <%= render "private/conversations/conversation",
+               conversation: @conversation,
+               user: current_user %>
+  <% end %>
+<% end %>
+

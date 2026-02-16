@@ -1,0 +1,10 @@
+<li id="menu-pc<%= conversation.id %>"
+    class="<%= private_conv_seen_status(conversation) %>"
+    data-id="<%= conversation.id %>"
+    data-type="private">
+  <%= link_to private_conv_recipient(conversation).name,
+              open_private_conversation_path(conversation),
+              data: { turbo_method: :post, turbo_stream: true },
+              class: "bigger-screen-link dropdown-item" %>
+</li>
+
