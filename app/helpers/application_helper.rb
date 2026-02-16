@@ -3,4 +3,5 @@ module ApplicationHelper
   include PostsHelper
   include Private::ConversationsHelper
   include Shared::ConversationsHelper
+  include Group::ConversationHelper
 end
