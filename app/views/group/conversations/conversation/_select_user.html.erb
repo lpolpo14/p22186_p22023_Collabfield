@@ -1,0 +1,19 @@
+<div class="select-users-to-chat"
+     data-group-chat-toggle-target="menu">
+
+  <%= form_with url: group_conversation_path(conversation),
+                method: :put,
+                data: { turbo_stream: true },
+                class: "form-group" do %>
+
+    <%= hidden_field_tag :added_by, current_user.id %>
+
+    <%= select_tag "user_id",
+        options_from_collection_for_select(add_people_to_conv_list, :id, :name),
+        class: "form-control select-users-dropdown" %>
+
+    <%= submit_tag "Add the user",
+                   class: "form-control select-users-button" %>
+  <% end %>
+</div>
+
