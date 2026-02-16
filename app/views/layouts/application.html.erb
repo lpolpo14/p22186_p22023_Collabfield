@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body data-current-user-id="<%= current_user&.id %>">
+  <body data-current-user-id="<%= current_user&.id %>"
+    data-group-conversation-ids="<%= (current_user ? current_user.group_conversations.ids : []).to_json %>" >
     <%= yield %>
     <div id="chat-windows" data-controller="chat">
       <%= render 'layouts/application/private_conversations_windows' %>

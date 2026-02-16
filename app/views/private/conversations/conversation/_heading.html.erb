@@ -1,17 +1,21 @@
 <div class="panel-heading <%= conv_heading_class(contact) %>">
   <span class="contact-name-notif"><%= recipient.name %></span>
 
-  <%= button_to "X",
-        close_private_conversation_path(conversation),
-        method: :post,
-        form: { data: { turbo_stream: true } },
-        class: "close-conversation",
-        title: "Close" %>
+  <div class="conversation-heading-actions">
+    <%= render add_to_contacts_partial_path(contact, recipient),
+               recipient: recipient,
+               contact: contact,
+               conversation: conversation %>
+
+    <%= render create_group_conv_partial_path(contact, recipient),
+               conversation: conversation,
+               recipient: recipient %>
+
+    <%= button_to "X",
+          close_private_conversation_path(conversation),
+          method: :post,
+          form: { data: { turbo_stream: true } },
+          class: "close-conversation",
+          title: "Close" %>
+  </div>
 </div>
-
-<%= render add_to_contacts_partial_path(contact, recipient),
-           recipient: recipient,
-           contact: contact,
-           conversation: conversation %>
-
-<%= render create_group_conv_partial_path, conversation: conversation %>

@@ -11,6 +11,8 @@
   z-index: 1000;
 }
 
+.conversation-window .panel { position: relative; }
+
 .panel-body {
   padding: 15px;
   background: white;
@@ -162,7 +164,7 @@
   padding: 10px 0;
 }
 
-.add-people-to-chat, .contact-request-sent {
+.contact-request-sent {
   display: none;
   margin: 0;
   padding: 0;
@@ -179,14 +181,22 @@
 }
 
 .add-people-to-chat {
-  i {
-    opacity: 0.8;
-    transition: opacity 0.15s;
-  }
-  &:hover i {
-    opacity: 1;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
+
+.group-chat-control {
+  position: relative;
+}
+
 
 .contact-request-status {
   position: relative;
@@ -230,4 +240,76 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.conversation-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* dropdown should overlay, not push content */
+.select-users-to-chat {
+  position: absolute;
+  right: 0;
+  top: 36px;              /* below the header row */
+  width: 360px;           /* or whatever fits */
+  height: auto;           /* don't force 45px */
+  display: none;
+  z-index: 2000;
+  padding: 8px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+/* when toggled open */
+.select-users-to-chat.is-open {
+  display: block;
+}
+
+
+.select-users-dropdown, .select-users-button {
+  border: none;
+  display: inline-block;
+  margin: 0;
+  height: 35px;
+}
+
+.select-users-dropdown {
+  width: 55%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.select-users-button {
+  width: 40%;
+  background-color: $navbarColor;
+  color: white;
+  border: 1px solid $navbarColor;
+}
+
+.panel-heading.conversation-heading,
+.panel-heading.conversation-heading-full {
+  height: 48px;          /* force equal height */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.conversation-heading-actions button,
+.conversation-heading-actions .button_to button,
+.add-people-to-chat {
+  line-height: 1;
+  font-size: 16px;       /* same baseline */
+  border: 0;
+  outline: 0;
+}
+
+.add-people-to-chat i {
+  line-height: 1;
+  font-size: 16px;
+  display: block;        /* prevents inline baseline weirdness */
+}
+
+.contact-name-notif {
+  line-height: 1;
 }

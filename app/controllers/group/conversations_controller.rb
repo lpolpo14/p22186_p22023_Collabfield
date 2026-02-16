@@ -2,10 +2,10 @@ class Group::ConversationsController < ApplicationController
 
   def create
     @conversation = create_group_conversation
-    add_to_conversations unless already_added?
 
     respond_to do |format|
-      format.js
+      format.turbo_stream
+      format.html { redirect_to group_conversation_path(@conversation) }
     end
   end
 
