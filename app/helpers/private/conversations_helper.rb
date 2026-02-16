@@ -41,6 +41,20 @@ module Private::ConversationsHelper
     end
   end
 
+  def create_group_conv_partial_path(contact)
+  if recipient_is_contact?
+    'private/conversations/conversation/heading/create_group_conversation'
+  else
+    'shared/empty_partial'
+  end
+  end
+
+  def contacts_except_recipient(recipient)
+  contacts = current_user.all_active_contacts
+  # return all contacts, except the opposite user of the chat
+  contacts.delete_if {|contact| contact.id == recipient.id }
+  end
+
   # show a link to send a contact request
   # if an opposite user is not in contacts and no requests exist
   def not_contact_no_request_partial_path(contact,recipient)
