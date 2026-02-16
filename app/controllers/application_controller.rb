@@ -23,6 +23,13 @@ class ApplicationController < ActionController::Base
   else
     @private_conversations_windows = []
   end
-end
+  end
+
+  def all_ordered_conversations 
+  if user_signed_in?
+    @all_conversations = OrderConversationsService.new({user: current_user}).call
+  end
+  end
+  before_action :all_ordered_conversations
 
 end
