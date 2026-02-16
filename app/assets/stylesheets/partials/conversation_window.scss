@@ -14,16 +14,28 @@
 .panel-body {
   padding: 15px;
   background: white;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Change this for total body size */
+  height: 380px;
 }
 
+
+
 .messages-list {
-  height: 300px;
+  /* height: 300px;  <-- remove this */
+  flex: 1;
+  min-height: 0; /* important for flex children to allow scrolling */
+
   overflow-y: auto;
   margin-bottom: 15px;
   padding: 10px;
   background: #f9f9f9;
   border-radius: 4px;
 }
+
 
 .messages-list ul {
   list-style: none;
@@ -180,7 +192,7 @@
   position: relative;
   left: 0;
   top: 0;
-  width: 400px;
+  width: 100%;
   text-align: center;
   background-color: white;
   z-index: 2;
@@ -210,4 +222,12 @@
       color: red;
     }
   }
+}
+
+.conversation-heading,
+.conversation-heading-full {
+  min-height: 48px;      /* constant header height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

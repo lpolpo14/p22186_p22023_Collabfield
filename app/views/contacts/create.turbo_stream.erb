@@ -1,5 +1,9 @@
-<%= turbo_stream.replace "contact-action-#{params[:contact_id]}" do %>
-  <span class="text-success" title="Contact request sent">
-    <i class="fa fa-check" aria-hidden="true"></i>
-  </span>
+<%= turbo_stream.replace "contact-request-status-#{params[:contact_id]}" do %>
+  <% recipient = User.find(params[:contact_id]) %>
+  <% contact = Contact.find_by_users(current_user.id, recipient.id) %>
+
+  <%= render "private/conversations/conversation/request_status",
+             recipient: recipient,
+             contact: contact %>
 <% end %>
+
