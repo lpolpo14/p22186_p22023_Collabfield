@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Developed by P22186 (Michael Favvas) and P22023 (Dimitrios Vlachopoulos)
 
-Things you may want to cover:
+Used *ruby 3.4.7* and *Rails 8.1.2*.
 
-* Ruby version
+## How to run
 
-* System dependencies
+Follow these steps in the terminal:
 
-* Configuration
 
-* Database creation
+# Install all the Gems
+bundle install 
 
-* Database initialization
+# Create the Database 
+rails db:create
 
-* How to run the test suite
+# Run the Migrations
+rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Start the server
+rails server
