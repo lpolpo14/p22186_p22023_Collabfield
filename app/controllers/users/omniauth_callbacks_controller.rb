@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def facebook
-    handle_auth "Facebook"
+    handle_auth "Facebook" # Good to keep for the future!
   end
 
   def failure
