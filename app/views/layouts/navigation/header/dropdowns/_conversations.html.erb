@@ -23,6 +23,10 @@
 
 <%# contact requests %>
 
-<div class='pull-right' id='contacts-requests'>
-  <%= render 'layouts/navigation/header/dropdowns/contact_requests' %>
-</div>
+<li class="nav-item">
+  <%= turbo_frame_tag "contact_requests_dropdown",
+        src: contact_requests_dropdown_path,
+        data: { controller: "polling-frame", "polling-frame-interval-value": 3000 } %>
+</li>
+
+

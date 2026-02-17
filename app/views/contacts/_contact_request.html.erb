@@ -1,19 +1,21 @@
-<li class="contact-request" data-user-name="<%= sender.name %>">
+<!-- app/views/contacts/_contact_request.html.erb -->
+<li id="contact_request_<%= user.id %>" class="contact-request">
   <div class="sixty-percent">
-    <span class="contact-name"><%= sender.name %></span> 
+    <span class="contact-name"><%= user.name %></span>
   </div>
+
   <div class="forty-percent">
     <span class="accept-request">
-      <%= link_to "Accept",  
-                  contact_path(id: sender.id), 
-                  remote: true, 
-                  method: "put" %>
-    </span> 
+      <%= link_to "Accept",
+                  contact_path(id: user.id),
+                  data: { turbo_method: :put } %>
+    </span>
+
     <span class="decline-request">
       <%= link_to "Decline",
-                  contact_path(id: sender.id), 
-                  remote: true, 
-                  method: :delete %>
+                  contact_path(id: user.id),
+                  data: { turbo_method: :delete } %>
     </span>
   </div>
 </li>
+
