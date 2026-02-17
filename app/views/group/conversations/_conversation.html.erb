@@ -8,8 +8,9 @@
     <%= render  'group/conversations/conversation/heading',
                 conversation: conversation,
             add_people_to_conv_list: add_people_to_conv_list %> 
-    <div class="panel-body">
-      <%= render  'group/conversations/conversation/messages_list',
+          <div class="panel-body">
+
+      <%= render  'group/conversations/conversation/messages_list_wrapper',
                   conversation: conversation %>
       <%= render  'group/conversations/conversation/new_message_form',
                   conversation: conversation,

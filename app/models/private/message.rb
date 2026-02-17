@@ -10,6 +10,8 @@ class Private::Message < ApplicationRecord
 
   private
 
+  # This does not really do anything. Still - It is very good to implement in the future as it is best practice and easy to maintain. 
+  # The reason why it was not set up is due to compatibiltiy issues between network adapters, computers etc. (Issues with Redis)
   def broadcast_message
   broadcast_append_to conversation,
     target: "conversation_#{conversation.id}_messages",

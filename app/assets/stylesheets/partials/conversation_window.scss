@@ -353,3 +353,8 @@
     visibility: visible;
   }
 }
+
+.messages-list {
+  overflow-y: scroll;     /* reserve scrollbar space always */
+  scrollbar-gutter: stable;
+}

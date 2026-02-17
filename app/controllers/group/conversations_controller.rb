@@ -32,6 +32,15 @@ class Group::ConversationsController < ApplicationController
     end
   end
 
+  def messages
+  @conversation = Group::Conversation.find(params[:id])
+
+  return unless @conversation.users.include?(current_user)
+
+  render partial: "group/conversations/conversation/messages_list",
+         locals: { conversation: @conversation }
+  end
+
 
   def update
   @info_message = Group::AddUserToConversationService.new(
@@ -65,7 +74,7 @@ class Group::ConversationsController < ApplicationController
     Group::NewConversationService.new(
       creator_id: params[:creator_id],
       private_conversation_id: params[:private_conversation_id],
-      new_user_id: params.dig(:group_conversation, :id) # matches your current form
+      new_user_id: params.dig(:group_conversation, :id) 
     ).call
   end
 end
