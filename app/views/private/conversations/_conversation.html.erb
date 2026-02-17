@@ -21,8 +21,8 @@
                             recipient: recipient,
                                     contact: contact %>
 
-      <%= render "private/conversations/conversation/messages_list",
-                  conversation: conversation %>
+      <%= render "private/conversations/conversation/messages_list_wrapper",
+           conversation: conversation %>
 
       <%= render "private/conversations/conversation/new_message_form",
                   conversation: conversation,

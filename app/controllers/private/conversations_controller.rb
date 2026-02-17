@@ -43,6 +43,17 @@ class Private::ConversationsController < ApplicationController
     end
   end
 
+    def messages
+    @conversation = Private::Conversation.find(params[:id])
+
+    unless [@conversation.sender_id, @conversation.recipient_id].include?(current_user.id)
+      head :forbidden and return
+    end
+
+    render partial: "private/conversations/conversation/messages_list",
+           locals: { conversation: @conversation }
+    end
+
   private
 
   def add_to_conversations

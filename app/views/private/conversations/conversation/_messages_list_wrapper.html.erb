@@ -1,0 +1,9 @@
+<div class="messages-list"
+     data-controller="conversation--autoscroll"
+     data-action="turbo:before-stream-render->conversation--autoscroll#scrollToBottomIfNearBottom">
+
+  <%= turbo_frame_tag "conversation_#{conversation.id}_messages",
+        src: messages_private_conversation_path(conversation),
+        data: { controller: "polling-frame", "polling-frame-interval-value": 1200 } %>
+
+</div>

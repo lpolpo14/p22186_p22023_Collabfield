@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       member do
         post :close
         post :open
+        get  :messages
       end
     end
     resources :messages, only: [:index, :create]
