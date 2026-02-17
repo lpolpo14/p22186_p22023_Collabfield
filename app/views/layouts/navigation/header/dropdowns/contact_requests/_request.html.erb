@@ -1,19 +1,18 @@
-<li class="contact-request" data-user-name="<%= user.name %>">
-  <div class="sixty-percent">
-    <span class="contact-name"><%= user.name %></span> 
-  </div>
-  <div class="forty-percent">
-    <span class="accept-request">
-      <%= link_to "Accept",  
-                  contact_path(id: user.id), 
-                  remote: true, 
-                  method: "put" %>
-    </span> 
-    <span class="decline-request">
+<li>
+  <div class="dropdown-item d-flex justify-content-between align-items-center text-white w-100">
+    <span><%= user.name %></span>
+
+    <div class="ms-2">
+      <%= link_to "Accept",
+                  contact_path(id: user.id),
+                  class: "btn btn-sm btn-success",
+                  data: { turbo_method: :put } %>
+
       <%= link_to "Decline",
-                  contact_path(id: user.id), 
-                  remote: true, 
-                  method: :delete %>
-    </span>
+                  contact_path(id: user.id),
+                  class: "btn btn-sm btn-outline-light",
+                  data: { turbo_method: :delete } %>
+    </div>
   </div>
-</li><!-- contact-request -->
+</li>
+

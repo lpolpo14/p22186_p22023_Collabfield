@@ -1,25 +1,23 @@
 <%= turbo_frame_tag "contact_requests_dropdown" do %>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle"
-       href="#"
-       role="button"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
-      <i class="fa fa-user-o" aria-hidden="true"></i>
-      <span id="unresponded-contact-requests" class="badge bg-danger">
-        <%= requests.size %>
-      </span>
-    </a>
+  <a class="nav-link dropdown-toggle"
+     href="#"
+     role="button"
+     data-bs-toggle="dropdown"
+     aria-expanded="false">
+    <i class="fa fa-user-o" aria-hidden="true"></i>
+    <span id="unresponded-contact-requests" class="badge bg-danger">
+      <%= requests.size %>
+    </span>
+  </a>
 
-    <ul class="dropdown-menu dropdown-menu-end" role="menu" id="contact-requests-list">
-      <% if requests.any? %>
-        <% requests.each do |req| %>
-          <%= render partial: "contacts/contact_request", locals: { user: req } %>
-        <% end %>
-      <% else %>
-        <li><span class="dropdown-item-text text-muted">You have no new requests</span></li>
+  <ul class="dropdown-menu dropdown-menu-end contact-requests-menu" role="menu" id="contact-requests-list">
+    <% if requests.any? %>
+      <% requests.each do |user| %>
+        <%= render partial: "contacts/contact_request", locals: { user: user } %>
       <% end %>
-    </ul>
-  </li>
+    <% else %>
+      <li><span class="dropdown-item-text text-muted">You have no new requests</span></li>
+    <% end %>
+  </ul>
 <% end %>
 

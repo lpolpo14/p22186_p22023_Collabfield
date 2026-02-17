@@ -29,11 +29,40 @@
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
 }
+
 
 body {
   margin-top: 50px;
+}
+
+
+.navbar.navbar-dark .dropdown-menu .dropdown-item,
+.navbar.navbar-dark .dropdown-menu .dropdown-item-text {
+  color: white !important;
+}
+
+/* Contact requests dropdown: force dark menu + white text */
+.contact-requests-menu {
+  background-color: $navbarColor !important;
+}
+
+.contact-requests-menu,
+.contact-requests-menu * {
+  color: #fff !important;
+}
+
+.contact-requests-menu .btn {
+  color: #fff !important;
+}
+
+.contact-requests-menu .dropdown-item {
+  background-color: transparent !important;
+}
+
+.contact-requests-menu .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
