@@ -19,4 +19,8 @@ rails db:create
 rails db:migrate
 
 # Start the server
+
+First run 
+./bin/dev 
+to apply css. Then:
 rails server
