@@ -47,8 +47,9 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :create]
   end
 
-  # Used for contacts dropdown
+  # Used for contacts and conversations dropdown
   resource :contact_requests_dropdown, only: :show
+  resource :conversations_dropdown, only: :show
 
 end
 

@@ -1,25 +1,9 @@
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle"
-     href="#"
-     role="button"
-     data-bs-toggle="dropdown"
-     aria-expanded="false">
-    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-    <span id="unseen-conversations" class="badge bg-danger"></span>
-  </a>
-
-  <ul class="dropdown-menu dropdown-menu-end">
-    <% @all_conversations.each do |conversation| %>
-      <%= render partial: conversation_header_partial_path(conversation),
-        locals: { conversation: conversation,
-                  user_id: current_user.id} %>
-    <% end %>
-
-    <% if @all_conversations.empty? %>
-      <li><span class="dropdown-item-text text-muted">No conversations yet</span></li>
-    <% end %>
-  </ul>
+<li class="nav-item">
+  <%= turbo_frame_tag "conversations_dropdown",
+        src: conversations_dropdown_path,
+        data: { controller: "polling-frame", "polling-frame-interval-value": 3000 } %>
 </li>
+
 
 <%# contact requests %>
 
