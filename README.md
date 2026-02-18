@@ -24,3 +24,5 @@ First run
 ./bin/dev 
 to apply css. Then:
 rails server
+
+**Note:** use rails db:seed to seed the database.
